@@ -73,7 +73,7 @@ placar-da-copa/
     └── contato/
         ├── contato.html
         └── style.css
-
+```
 # 📌 Requisitos Gerais
 
 Todos devem:
