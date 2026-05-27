@@ -62,7 +62,7 @@ placar-da-copa/
     │   ├── onde-assistir.html
     │   └── style.css
     │
-    ├── estadios/
+    ├── estadios/  (FRANCISCO CARLOS)
     │   ├── estadios.html
     │   └── style.css
     │
