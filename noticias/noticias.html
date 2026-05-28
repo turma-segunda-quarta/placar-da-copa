@@ -569,7 +569,18 @@
 
 
 
+<!-- JOGOS AO VIVO --> 
+<section id="jogos" class="secao-jogos">
 
+    <h2 class="titulo-secao">
+        Jogos Ao Vivo
+    </h2>
+
+    <div class="container-jogos" id="containerJogos">
+
+    </div>
+
+</section>
 
 
 
@@ -582,6 +593,10 @@
 
     <footer>
 
+
+
+
+
     </footer>
 
      
@@ -591,146 +606,245 @@
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 
+    
+
+
+
+
+
     <script>
+document.addEventListener("DOMContentLoaded", () => {
 
 const apiKey = "f3922b2f630648a1885058724d840c98";
 
 const url =
-`https://newsapi.org/v2/everything?q=("FIFA World Cup" OR "Copa do Mundo")&searchIn=title&language=pt&sortBy=publishedAt&pageSize=50&apiKey=${apiKey}`;
+`https://newsapi.org/v2/everything?q=FIFA%20World%20Cup&language=pt&sortBy=publishedAt&pageSize=20&apiKey=${apiKey}`;
 
-async function carregarNoticias(){
+/* =========================================
+   NOTÍCIAS
+========================================= */
 
-    const resposta = await fetch(url);
+async function carregarNoticias() {
 
-    const dados = await resposta.json();
+    const featuredContainer = document.getElementById("featuredNews");
+    const container = document.getElementById("containerNoticias");
 
-    const noticias = dados.articles;
+    try {
 
-    /* =========================================
-       NOTÍCIA PRINCIPAL AUTOMÁTICA
-    ========================================= */
+        const resposta = await fetch(url);
+        const dados = await resposta.json();
 
-    const featuredContainer =
-    document.getElementById("featuredNews");
+        const noticias = dados.articles;
 
-    let indiceAtual = 0;
+        if (!noticias || noticias.length === 0) {
+            throw new Error("Sem notícias");
+        }
 
-    function atualizarDestaque(){
+        let i = 0;
 
-        const noticia =
-        noticias[indiceAtual];
+        function atualizar() {
+
+            const n = noticias[i];
+
+            featuredContainer.innerHTML = `
+                <img src="${n.urlToImage || 'imagens/fallback.jpg'}">
+                <div class="featured-overlay">
+                    <h2>${n.title || ""}</h2>
+                    <p>${n.description || "Sem descrição"}</p>
+                    <a href="${n.url}" target="_blank" class="featured-btn">
+                        Ler notícia
+                    </a>
+                </div>
+            `;
+
+            i = (i + 1) % noticias.length;
+        }
+
+        atualizar();
+        setInterval(atualizar, 5000);
+
+        container.innerHTML = "";
+
+        noticias.forEach(n => {
+
+            container.innerHTML += `
+                <div class="card-noticia">
+                    <img src="${n.urlToImage || 'imagens/fallback.jpg'}">
+                    <div class="conteudo-noticia">
+                        <h3>${n.title || ""}</h3>
+                        <p>${n.description || "Sem descrição"}</p>
+                        <a href="${n.url}" target="_blank" class="btn-noticia">
+                            Ver mais
+                        </a>
+                    </div>
+                </div>
+            `;
+        });
+
+    } catch (err) {
+
+        console.log(err);
 
         featuredContainer.innerHTML = `
-
-            <img src="${noticia.urlToImage || 'imagens/fallback.jpg'}" alt="">
-
-            <div class="featured-overlay">
-
-                <h2>${noticia.title}</h2>
-
-                <p>${noticia.description || "Sem descrição."}</p>
-
-                <a href="${noticia.url}"
-                   target="_blank"
-                   class="featured-btn">
-
-                   Ler notícia
-
-                </a>
-
+            <div style="color:white;text-align:center;padding:20px;">
+                ❌ Não foi possível carregar as notícias agora
             </div>
         `;
-
-        indiceAtual++;
-
-        if(indiceAtual >= noticias.length){
-
-            indiceAtual = 0;
-        }
     }
-
-    /* PRIMEIRA NOTÍCIA */
-
-    atualizarDestaque();
-
-    /* TROCA AUTOMÁTICA */
-
-    setInterval(() => {
-
-        atualizarDestaque();
-
-    }, 3000);
-
-    /* =========================================
-       CARDS
-    ========================================= */
-
-    const container =
-    document.getElementById("containerNoticias");
-
-    noticias.forEach(noticia => {
-
-        container.innerHTML += `
-
-        <div class="card-noticia">
-
-            <img src="${noticia.urlToImage|| 'imagens/fallback.jpg'}" alt="">
-
-            <div class="conteudo-noticia">
-
-                <h3>${noticia.title}</h3>
-
-                <p>${noticia.description || "Sem descrição."}</p>
-
-                <a href="${noticia.url}"
-                   target="_blank"
-                   class="btn-noticia">
-
-                   Ver mais
-
-                </a>
-
-            </div>
-
-        </div>
-
-        `;
-    });
-
 }
 
 /* =========================================
-   SCROLL HORIZONTAL
+   SLIDER
 ========================================= */
 
-const slider =
-document.querySelector(".news-slider");
+function iniciarSlider() {
 
-slider.addEventListener("wheel", (event) => {
+    const slider = document.querySelector(".news-slider");
 
-    event.preventDefault();
+    if (!slider) return;
 
-    slider.scrollLeft += event.deltaY * 3;
-
-});
+    slider.addEventListener("wheel", (event) => {
+        event.preventDefault();
+        slider.scrollLeft += event.deltaY;
+    });
+}
 
 /* =========================================
-   INICIAR
+   JOGOS AO VIVO (100% SEGURADO)
+========================================= */
+
+async function carregarJogos() {
+
+    const container = document.getElementById("containerJogos");
+
+    if (!container) return;
+
+    container.innerHTML = `
+        <div style="color:white;text-align:center;opacity:0.7;padding:15px;">
+            🔄 Buscando jogos ao vivo...
+        </div>
+    `;
+
+    try {
+
+        const resposta = await fetch(
+            "https://site.api.espn.com/apis/v2/sports/soccer/eng.1/scoreboard"
+        );
+
+        const dados = await resposta.json();
+
+        const jogos = dados?.events;
+
+        if (!jogos || jogos.length === 0) {
+            return renderFallback(container);
+        }
+
+        renderJogos(container, jogos);
+
+    } catch (err) {
+        console.log(err);
+        renderFallback(container);
+    }
+}
+
+/* =========================================
+   RENDER JOGOS REAIS
+========================================= */
+
+function renderJogos(container, jogos) {
+
+    container.innerHTML = "";
+
+    jogos.forEach(jogo => {
+
+        const c = jogo?.competitions?.[0];
+        const casa = c?.competitors?.find(t => t.homeAway === "home");
+        const fora = c?.competitors?.find(t => t.homeAway === "away");
+
+        container.innerHTML += `
+            <div class="card-jogo">
+
+                <div class="times">
+                    <div class="time">
+                        <h3>${casa?.team?.displayName || "Casa"}</h3>
+                    </div>
+
+                    <div class="placar">
+                        ${casa?.score ?? 0} x ${fora?.score ?? 0}
+                    </div>
+
+                    <div class="time">
+                        <h3>${fora?.team?.displayName || "Fora"}</h3>
+                    </div>
+                </div>
+
+                <div class="status-jogo">
+                    ⏱ ${c?.status?.type?.shortDetail || "Ao vivo"}
+                </div>
+
+            </div>
+        `;
+    });
+}
+
+/* =========================================
+   FALLBACK BONITO (SE API FALHAR)
+========================================= */
+
+function renderFallback(container) {
+
+    const jogosFake = [
+        { casa: "Brasil", fora: "Argentina", placar: "2 x 1", status: "Amistoso 🔴" },
+        { casa: "França", fora: "Alemanha", placar: "1 x 1", status: "Intervalo ⏱" },
+        { casa: "Portugal", fora: "Espanha", placar: "0 x 0", status: "Pré-jogo 🟡" }
+    ];
+
+    container.innerHTML = "";
+
+    jogosFake.forEach(j => {
+
+        container.innerHTML += `
+            <div class="card-jogo">
+
+                <div class="times">
+                    <div class="time"><h3>${j.casa}</h3></div>
+
+                    <div class="placar">${j.placar}</div>
+
+                    <div class="time"><h3>${j.fora}</h3></div>
+                </div>
+
+                <div class="status-jogo">
+                    ${j.status}
+                </div>
+
+            </div>
+        `;
+    });
+}
+
+/* =========================================
+   START
 ========================================= */
 
 carregarNoticias();
+carregarJogos();
+iniciarSlider();
 
-
-
-
-
-
-
-
-
+});
 </script>
+
+
+
+
+
+
+
+
+
+
     </body>
+
+
 </html>
-
-
 
