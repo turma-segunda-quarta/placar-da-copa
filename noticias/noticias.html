@@ -143,12 +143,85 @@
 
 
 
+<!-- ÚLTIMAS NOTÍCIAS -->
+
+<section id="ultimas_noticias" class="ultimas-noticias">
+
+    <h2 class="titulo-secao">
+        Mais Recentes
+    </h2>
+
+    <div class="container-noticias" id="containerNoticias">
+
+    </div>
+
+</section>
+
+
+
+
 
     <footer>
 
     </footer>
 
      
+
+
+
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-</body>
+
+
+    <script>
+
+const apiKey = "f3922b2f630648a1885058724d840c98";
+
+
+const url =
+`https://newsapi.org/v2/everything?q=("FIFA World Cup" OR "Copa do Mundo FIFA")&language=pt&sortBy=publishedAt&pageSize=6&apiKey=${apiKey}`;
+
+async function carregarNoticias(){
+
+    const resposta = await fetch(url);
+
+    const dados = await resposta.json();
+
+    const container =
+    document.getElementById("containerNoticias");
+
+    dados.articles.forEach(noticia => {
+
+        container.innerHTML += `
+
+        <div class="card-noticia">
+
+            <img src="${noticia.urlToImage}" alt="">
+
+            <div class="conteudo-noticia">
+
+                <h3>${noticia.title}</h3>
+
+                <p>${noticia.description || "Sem descrição."}</p>
+
+                <a href="${noticia.url}"
+                   target="_blank"
+                   class="btn-noticia">
+
+                   Ler notícia
+
+                </a>
+
+            </div>
+
+        </div>
+
+        `;
+    });
+
+}
+
+carregarNoticias();
+
+</script>
+    </body>
 </html>
