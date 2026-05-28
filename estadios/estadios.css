@@ -2,16 +2,39 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border-radius: 5px;
 }
 
+body {
+    background-color: #005391;
+    padding: 5px;
+}
+.logo{
+    width: 90px;
+}
 .titulo {
     display: flex;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
+    font-size: 30px;
+    color: #fdc82f;
 }
-
 .assunto {
     text-align: center;
-    background-color: yellow;
-    border-bottom: 2px solid blue;
+    background-color: #fdc82f;
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+main{
+    display: flex;
+    justify-content: center;
+    padding: 5px auto;
+    margin-top: 5px;
+}
+.estadios {
+    display: grid;
+    width: 1000px;
+    border: 1px solid black;
+    
 }
