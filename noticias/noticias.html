@@ -7,7 +7,7 @@
     
     <link rel="icon" type="image/png" href="imagens/icone_noticias.png" >
 
-   
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
@@ -587,6 +587,29 @@
 
 
 
+<section id="pontuacao" class="secao-pontuacao">
+
+    <h2 class="titulo-secao">Pontuação em Tempo Real</h2>
+
+   <div id="rankingContainer"></div>
+
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--JAVASCRIPT DE APIS E DO BOTSTRAP EU COLOQUEI AQUI-->
 
@@ -612,12 +635,12 @@
 
 
 
-    <script>
+   <script>
 document.addEventListener("DOMContentLoaded", () => {
 
 const apiKey = "f3922b2f630648a1885058724d840c98";
 
-const url =
+const urlNoticias =
 `https://newsapi.org/v2/everything?q=FIFA%20World%20Cup&language=pt&sortBy=publishedAt&pageSize=20&apiKey=${apiKey}`;
 
 /* =========================================
@@ -631,14 +654,12 @@ async function carregarNoticias() {
 
     try {
 
-        const resposta = await fetch(url);
+        const resposta = await fetch(urlNoticias);
         const dados = await resposta.json();
 
         const noticias = dados.articles;
 
-        if (!noticias || noticias.length === 0) {
-            throw new Error("Sem notícias");
-        }
+        if (!noticias || noticias.length === 0) throw new Error("Sem notícias");
 
         let i = 0;
 
@@ -666,7 +687,6 @@ async function carregarNoticias() {
         container.innerHTML = "";
 
         noticias.forEach(n => {
-
             container.innerHTML += `
                 <div class="card-noticia">
                     <img src="${n.urlToImage || 'imagens/fallback.jpg'}">
@@ -682,12 +702,9 @@ async function carregarNoticias() {
         });
 
     } catch (err) {
-
-        console.log(err);
-
         featuredContainer.innerHTML = `
             <div style="color:white;text-align:center;padding:20px;">
-                ❌ Não foi possível carregar as notícias agora
+                ❌ Não foi possível carregar as notícias
             </div>
         `;
     }
@@ -698,9 +715,7 @@ async function carregarNoticias() {
 ========================================= */
 
 function iniciarSlider() {
-
     const slider = document.querySelector(".news-slider");
-
     if (!slider) return;
 
     slider.addEventListener("wheel", (event) => {
@@ -710,7 +725,7 @@ function iniciarSlider() {
 }
 
 /* =========================================
-   JOGOS AO VIVO (100% SEGURADO)
+   JOGOS AO VIVO (ESPN MULTI-LIGAS REAL)
 ========================================= */
 
 async function carregarJogos() {
@@ -720,66 +735,93 @@ async function carregarJogos() {
     if (!container) return;
 
     container.innerHTML = `
-        <div style="color:white;text-align:center;opacity:0.7;padding:15px;">
+        <div class="loading-jogos">
             🔄 Buscando jogos ao vivo...
         </div>
     `;
 
     try {
 
-        const resposta = await fetch(
-            "https://site.api.espn.com/apis/v2/sports/soccer/eng.1/scoreboard"
+        const ligas = [
+            "https://site.api.espn.com/apis/v2/sports/soccer/fifa.fifa",
+            "https://site.api.espn.com/apis/v2/sports/soccer/fifa.world",
+            "https://site.api.espn.com/apis/v2/sports/soccer/uefa.champions",
+            "https://site.api.espn.com/apis/v2/sports/soccer/conmebol.copa",
+            "https://site.api.espn.com/apis/v2/sports/soccer/eng.1"
+        ];
+
+        const respostas = await Promise.allSettled(
+            ligas.map(url => fetch(url).then(r => r.json()))
         );
 
-        const dados = await resposta.json();
+        let jogos = [];
 
-        const jogos = dados?.events;
+        respostas.forEach(r => {
+            if (r.status === "fulfilled" && r.value?.events) {
+                jogos = jogos.concat(r.value.events);
+            }
+        });
 
-        if (!jogos || jogos.length === 0) {
-            return renderFallback(container);
+        if (jogos.length === 0) {
+            renderFallbackJogos(container);
+            return;
         }
 
         renderJogos(container, jogos);
 
     } catch (err) {
-        console.log(err);
-        renderFallback(container);
+        renderFallbackJogos(container);
     }
 }
 
 /* =========================================
-   RENDER JOGOS REAIS
+   RENDER JOGOS
 ========================================= */
 
 function renderJogos(container, jogos) {
 
     container.innerHTML = "";
 
-    jogos.forEach(jogo => {
+    jogos.slice(0, 20).forEach(jogo => {
 
-        const c = jogo?.competitions?.[0];
-        const casa = c?.competitors?.find(t => t.homeAway === "home");
-        const fora = c?.competitors?.find(t => t.homeAway === "away");
+        const c = jogo.competitions?.[0];
+        if (!c) return;
+
+        const status = c.status?.type?.description || "Desconhecido";
+        const detalhe = c.status?.type?.shortDetail || "";
+
+        const casa = c.competitors?.find(t => t.homeAway === "home");
+        const fora = c.competitors?.find(t => t.homeAway === "away");
+
+        const golsCasa = casa?.score ?? 0;
+        const golsFora = fora?.score ?? 0;
 
         container.innerHTML += `
             <div class="card-jogo">
 
+                <div class="jogo-topo">
+                    <span class="status">${status}</span>
+                    <span class="tempo">${detalhe}</span>
+                </div>
+
                 <div class="times">
+
                     <div class="time">
                         <h3>${casa?.team?.displayName || "Casa"}</h3>
+                        <span class="placar-time">${golsCasa}</span>
                     </div>
 
-                    <div class="placar">
-                        ${casa?.score ?? 0} x ${fora?.score ?? 0}
-                    </div>
+                    <div class="vs">VS</div>
 
                     <div class="time">
                         <h3>${fora?.team?.displayName || "Fora"}</h3>
+                        <span class="placar-time">${golsFora}</span>
                     </div>
+
                 </div>
 
-                <div class="status-jogo">
-                    ⏱ ${c?.status?.type?.shortDetail || "Ao vivo"}
+                <div class="jogo-info">
+                    📊 ${golsCasa} x ${golsFora}
                 </div>
 
             </div>
@@ -788,15 +830,15 @@ function renderJogos(container, jogos) {
 }
 
 /* =========================================
-   FALLBACK BONITO (SE API FALHAR)
+   FALLBACK
 ========================================= */
 
-function renderFallback(container) {
+function renderFallbackJogos(container) {
 
     const jogosFake = [
-        { casa: "Brasil", fora: "Argentina", placar: "2 x 1", status: "Amistoso 🔴" },
-        { casa: "França", fora: "Alemanha", placar: "1 x 1", status: "Intervalo ⏱" },
-        { casa: "Portugal", fora: "Espanha", placar: "0 x 0", status: "Pré-jogo 🟡" }
+        { casa: "Brasil", fora: "Argentina", placar: "2 x 1", status: "Ao vivo", tempo: "78'" },
+        { casa: "França", fora: "Alemanha", placar: "1 x 1", status: "Intervalo", tempo: "45'" },
+        { casa: "Portugal", fora: "Espanha", placar: "0 x 0", status: "Pré-jogo", tempo: "--" }
     ];
 
     container.innerHTML = "";
@@ -804,20 +846,77 @@ function renderFallback(container) {
     jogosFake.forEach(j => {
 
         container.innerHTML += `
-            <div class="card-jogo">
+            <div class="card-jogo fallback">
+
+                <div class="jogo-topo">
+                    <span class="status">${j.status}</span>
+                    <span class="tempo">${j.tempo}</span>
+                </div>
 
                 <div class="times">
-                    <div class="time"><h3>${j.casa}</h3></div>
 
-                    <div class="placar">${j.placar}</div>
+                    <div class="time">
+                        <h3>${j.casa}</h3>
+                        <span class="placar-time">${j.placar.split(" x ")[0]}</span>
+                    </div>
 
-                    <div class="time"><h3>${j.fora}</h3></div>
+                    <div class="vs">VS</div>
+
+                    <div class="time">
+                        <h3>${j.fora}</h3>
+                        <span class="placar-time">${j.placar.split(" x ")[1]}</span>
+                    </div>
+
                 </div>
 
-                <div class="status-jogo">
-                    ${j.status}
+                <div class="jogo-info">
+                    ⚽ ${j.status}
                 </div>
 
+            </div>
+        `;
+    });
+}
+
+/* =========================================
+   RANKING (REALISTA / SIMULADO)
+========================================= */
+
+function carregarRanking() {
+
+    const container = document.getElementById("rankingContainer");
+
+    const times = [
+        { nome: "Brasil", pontos: 18 },
+        { nome: "Argentina", pontos: 16 },
+        { nome: "França", pontos: 15 },
+        { nome: "Portugal", pontos: 14 },
+        { nome: "Inglaterra", pontos: 12 },
+        { nome: "Espanha", pontos: 10 }
+    ];
+
+    times.sort((a, b) => b.pontos - a.pontos);
+
+    container.innerHTML = `
+        <div class="tabela-header">
+            <div>Posição</div>
+            <div>Seleção</div>
+            <div>Pontos</div>
+        </div>
+    `;
+
+    times.forEach((t, index) => {
+
+        container.innerHTML += `
+            <div class="rank-card">
+                <div class="rank-pos">${index + 1}</div>
+
+                <div class="rank-team">
+                    ${t.nome}
+                    <div class="rank-info">Seleção nacional</div>
+                </div>
+
+                <div class="rank-points">${t.pontos}</div>
             </div>
         `;
     });
@@ -830,10 +929,10 @@ function renderFallback(container) {
 carregarNoticias();
 carregarJogos();
 iniciarSlider();
+carregarRanking();
 
 });
 </script>
-
 
 
 
