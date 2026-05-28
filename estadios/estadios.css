@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.assunto {
+    text-align: center;
+    background-color: yellow;
+    border-bottom: 2px solid blue;
+}
