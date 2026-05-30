@@ -9,9 +9,11 @@ body {
     background-color: #005391;
     padding: 5px;
 }
-.logo{
+
+.logo {
     width: 90px;
 }
+
 .titulo {
     display: flex;
     justify-content: space-between;
@@ -19,6 +21,11 @@ body {
     font-size: 30px;
     color: #fdc82f;
 }
+
+.titulo h1 {
+    text-align: center;
+}
+
 .assunto {
     text-align: center;
     background-color: #fdc82f;
@@ -26,15 +33,118 @@ body {
     font-size: 18px;
     font-weight: bold;
 }
-main{
+
+main {
     display: flex;
     justify-content: center;
     padding: 5px auto;
     margin-top: 5px;
 }
+
 .estadios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1200px;
+
+}
+
+.estadio {
+    width: 300px;
+}
+
+.estadios img {
+    width: 400px;
+    height: 260px;
+    box-shadow: 8px 8px 18px #fdc82f;
+}
+
+.estadio img:hover {
+    transform: translate(60px, -40px) scale(1.5);
+}
+
+
+.nome-pais {
+    font-size: 50px;
+    color: #fdc82f;
+    border: 1px solid white;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.dados {
+    list-style: none;
+    padding-left: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.canada,
+.mexico,
+.usa {
+    margin: 0 auto 20px auto;
     display: grid;
-    width: 1000px;
-    border: 1px solid black;
-    
+    grid-template:
+        "topo topo topo topo topo topo topo"
+        "x centro-1 y centro-2 z centro-3 w"
+        "x centro-4 y centro-5 z centro-6 w"
+        "x centro-7 y centro-8 z centro-9 w"
+        "x centro-10 y centro-11 z centro-12 w"
+        / 1fr 450px 1fr 450px 1fr 450px 1fr;
+    row-gap: 5px;
+}
+
+.nome-pais {
+    grid-area: topo;
+}
+
+.estadio-1 {
+    grid-area: centro-1;
+}
+
+.estadio-2 {
+    grid-area: centro-2;
+}
+
+.estadio-3 {
+    grid-area: centro-3;
+}
+
+.estadio-4 {
+    grid-area: centro-4;
+}
+
+.estadio-5 {
+    grid-area: centro-5;
+}
+
+.estadio-6 {
+    grid-area: centro-6;
+}
+
+.estadio-7 {
+    grid-area: centro-7;
+}
+
+.estadio-8 {
+    grid-area: centro-8;
+}
+
+.estadio-9 {
+    grid-area: centro-9;
+}
+
+.estadio-10 {
+    grid-area: centro-10;
+}
+
+.estadio-11 {
+    grid-area: centro-11;
+}
+
+.estadio-12 {
+    grid-area: centro-12;
 }
