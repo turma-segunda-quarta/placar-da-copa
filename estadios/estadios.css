@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 body {
@@ -10,8 +10,17 @@ body {
     padding: 5px;
 }
 
+.container {
+    width: 1350px;
+    margin: 0 auto 0 auto;
+}
+
 .logo {
     width: 90px;
+}
+
+.cabecalho {
+    width: 100%;
 }
 
 .titulo {
@@ -34,52 +43,59 @@ body {
     font-weight: bold;
 }
 
-main {
-    display: flex;
-    justify-content: center;
-    padding: 5px auto;
+.principal {
+    padding: 5px 0;
     margin-top: 5px;
+    width: 100%;
 }
 
 .estadios {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 1200px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
 
 }
 
 .estadio {
-    width: 300px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .estadios img {
-    width: 400px;
-    height: 260px;
-    box-shadow: 8px 8px 18px #fdc82f;
+    width: 430px;
+    height: 280px;
+    box-shadow: 8px 8px 38px white;
 }
 
 .estadio img:hover {
-    transform: translate(60px, -40px) scale(1.5);
+    transform: translate(80px, -40px) scale(1.5);
+    border: 4px solid #fdc82f;
 }
-
 
 .nome-pais {
     font-size: 50px;
     color: #fdc82f;
     border: 1px solid white;
-    padding-left: 10px;
+    text-align: left;
+    padding-left: 20px;
     margin-bottom: 10px;
 }
 
 .dados {
     list-style: none;
-    padding-left: 5px;
+    padding-left: 12px;
     font-size: 25px;
     font-weight: bold;
     margin-top: 20px;
     margin-bottom: 30px;
     color: white;
+    width: 450px;
+
 }
 
 .canada,
@@ -88,13 +104,13 @@ main {
     margin: 0 auto 20px auto;
     display: grid;
     grid-template:
-        "topo topo topo topo topo topo topo"
-        "x centro-1 y centro-2 z centro-3 w"
-        "x centro-4 y centro-5 z centro-6 w"
-        "x centro-7 y centro-8 z centro-9 w"
-        "x centro-10 y centro-11 z centro-12 w"
-        / 1fr 450px 1fr 450px 1fr 450px 1fr;
-    row-gap: 5px;
+        " topo topo topo topo topo "
+        " centro-1 y centro-2 z centro-3 "
+        " centro-4 y centro-5 z centro-6 "
+        " centro-7 y centro-8 z centro-9 "
+        " centro-10 y centro-11 z centro-12 "
+        / 450px 1fr 450px 1fr 450px;
+
 }
 
 .nome-pais {
@@ -147,4 +163,21 @@ main {
 
 .estadio-12 {
     grid-area: centro-12;
+}
+
+.rodape {
+    width: 1350px;
+    display: flex;
+    border: 1px solid white;
+    padding: 10px;
+    justify-content: center;
+}
+
+.rodape img {
+    width: 60px;
+    height: 60px;
+}
+
+.rodape a {
+    margin: 0 60px;
 }
