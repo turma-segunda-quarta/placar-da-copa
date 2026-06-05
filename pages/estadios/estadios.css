@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+body {
+    background-color: #005391;
+    padding: 5px;
+}
+
+.container {
+    width: 1350px;
+    margin: 0 auto 0 auto;
+}
+
+.logo {
+    width: 90px;
+}
+
+.cabecalho {
+    width: 100%;
+}
+
+.titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30px;
+    color: #fdc82f;
+}
+
+.titulo h1 {
+    text-align: center;
+}
+
+.assunto {
+    text-align: center;
+    background-color: #fdc82f;
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.principal {
+    padding: 5px 0;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.estadios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.estadio {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.estadios img {
+    width: 430px;
+    height: 280px;
+    box-shadow: 8px 8px 38px white;
+}
+
+.estadio img:hover {
+    transform: translate(80px, -40px) scale(1.5);
+    border: 4px solid #fdc82f;
+}
+
+.nome-pais {
+    font-size: 50px;
+    color: #fdc82f;
+    border: 1px solid white;
+    text-align: left;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.dados {
+    list-style: none;
+    padding-left: 12px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: white;
+    width: 450px;
+
+}
+
+.canada,
+.mexico,
+.usa {
+    margin: 0 auto 20px auto;
+    display: grid;
+    grid-template:
+        " topo topo topo topo topo "
+        " centro-1 y centro-2 z centro-3 "
+        " centro-4 y centro-5 z centro-6 "
+        " centro-7 y centro-8 z centro-9 "
+        " centro-10 y centro-11 z centro-12 "
+        / 450px 1fr 450px 1fr 450px;
+
+}
+
+.nome-pais {
+    grid-area: topo;
+}
+
+.estadio-1 {
+    grid-area: centro-1;
+}
+
+.estadio-2 {
+    grid-area: centro-2;
+}
+
+.estadio-3 {
+    grid-area: centro-3;
+}
+
+.estadio-4 {
+    grid-area: centro-4;
+}
+
+.estadio-5 {
+    grid-area: centro-5;
+}
+
+.estadio-6 {
+    grid-area: centro-6;
+}
+
+.estadio-7 {
+    grid-area: centro-7;
+}
+
+.estadio-8 {
+    grid-area: centro-8;
+}
+
+.estadio-9 {
+    grid-area: centro-9;
+}
+
+.estadio-10 {
+    grid-area: centro-10;
+}
+
+.estadio-11 {
+    grid-area: centro-11;
+}
+
+.estadio-12 {
+    grid-area: centro-12;
+}
+
+.rodape {
+    width: 1350px;
+    display: flex;
+    border: 1px solid white;
+    padding: 10px;
+    justify-content: center;
+}
+
+.rodape img {
+    width: 60px;
+    height: 60px;
+}
+
+.rodape a {
+    margin: 0 60px;
+}
