@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias da Copa</title>
+    
+    <link rel="icon" type="image/png" href="imagens/icone_noticias.png" >
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+      <link rel="stylesheet" href="noticias.css">
+
+</head>
+<body>
+
+    <nav class="menu-noticias">
+       
+    
+        <div class="logo" id="volta_pracima">
+            <a href="#hero-carousel" >
+            <img src="imagens/icone_noticias.png">
+            <h1>Notícias da Copa</h1>
+
+        </a>
+
+        </a>
+        
+        <select class="nav-links select_menu" >
+            <option selected>Notícias</option>
+            <option><a href="home.html">Home</a></option>
+            <option><a href="pages/escalacao/index.html">Escalação</a></option>
+            <option><a href="pages/estadios/estadios.html">Estadios</a></option>
+            <option><a href="pages/selecoes/selecoes.html">Seleções</a></option>
+            
+        
+        </select>
+
+        <ul class="nav-links">
+            <li><a href="#ultimas_noticias">Mais Recentes</a></li>
+            <li><a href="#estadios">Estadios</a></li>
+            <li><a href="#selecoes">Seleções</a></li>
+            <li><a href="#jogos">Jogos</a></li>
+            <li><a href="#pontuacao">Pontuação</a></li>
+        
+        </ul>
+
+    </nav>
+
+
+<!-- CARossSEL -->
+
+<section id="hero-carousel" class="hero-carousel">
+
+    <div id="carouselCopa" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <!-- INDICADORES -->
+
+        <div class="carousel-indicators">
+
+            <button type="button" data-bs-target="#carouselCopa" data-bs-slide-to="0" class="active"></button>
+
+            <button type="button" data-bs-target="#carouselCopa" data-bs-slide-to="1"></button>
+
+            <button type="button" data-bs-target="#carouselCopa" data-bs-slide-to="2"></button>
+
+        </div>
+
+        <!-- IMAGENS -->
+
+        <div class="carousel-inner">
+
+            <!-- SLIDE 1 -->
+
+            <div class="carousel-item active">
+                <a id="linkAncoraFoto" href="#ultimas_noticias">
+
+                <img  src="imagens/copa-noticias-1.png" class="d-block w-100">
+
+                <div class="overlay"></div>
+
+                <div class="carousel-caption">
+
+                    <h1>Notícias da Copa</h1>
+
+                    <p>Últimas notícias da Copa do Mundo em tempo real.</p>
+
+                </div>
+
+                </a>
+
+            </div>
+
+            <!-- SLIDE 2 -->
+
+            <div class="carousel-item">
+                 <a id="linkAncoraFoto" href="#jogos">
+
+                <img src="imagens/copa-noticias-2.png" class="d-block w-100">
+
+                <div class="overlay"></div>
+
+                <div class="carousel-caption">
+
+                    <h1>Os Maiores Craques</h1>
+
+                    <p>Acompanhe estrelas e seleções históricas.</p>
+
+                </div>
+                </a>
+
+            </div>
+
+            <!-- SLIDE 3 -->
+
+            <div class="carousel-item">
+                 <a id="linkAncoraFoto" href="#pontuacao">
+
+                <img src="imagens/copa-noticias-3.png" class="d-block w-100">
+
+                <div class="overlay"></div>
+
+                <div class="carousel-caption">
+
+                    <h1>Emoção em Cada Jogo</h1>
+
+                    <p>Resultados, notícias e bastidores da Copa.</p>
+
+                </div>
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- BOTÕES -->
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselCopa" data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon"></span>
+
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselCopa" data-bs-slide="next">
+
+            <span class="carousel-control-next-icon"></span>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+<!-- ÚLTIMAS NOTÍCIAS -->
+
+<section id="ultimas_noticias" class="ultimas-noticias">
+
+    <h2 class="titulo-secao">
+        Últimas Notícias
+    </h2>
+
+    <div class="news-wrapper">
+
+        <!-- NOTÍCIA PRINCIPAL -->
+        <div class="featured-news" id="featuredNews">
+
+        </div>
+
+        <!-- SLIDER -->
+        <div class="news-slider" id="containerNoticias">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =========================================
+     ESTÁDIOS DA COPA 2026
+========================================= -->
+
+<section id="estadios" class="secao-estadios">
+
+    <h2 class="titulo-secao">
+        Estádios da Copa do Mundo 2026
+    </h2>
+
+    <div class="grid-estadios">
+
+        <!-- ATLANTA -->
+
+        <div class="card-estadio">
+
+            <img src="imagens/atlanta.png.png" alt="Atlanta">
+
+            <div class="info-estadio">
+
+                <h3>🇺🇸 Atlanta</h3>
+
+                <p>Mercedes-Benz Stadium</p>
+
+            </div>
+
+        </div>
+
+        <!-- BOSTON -->
+
+        <div class="card-estadio">
+
+            <img src="imagens/boston.png.png" alt="Boston">
+
+            <div class="info-estadio">
+
+                <h3>🇺🇸 Boston</h3>
+
+                <p>Gillette Stadium</p>
+
+            </div>
+
+        </div>
+
+        <!-- DALLAS -->
+
+        <div class="card-estadio">
+
+            <img src="imagens/dallas.png.png" alt="Dallas">
+
+            <div class="info-estadio">
+
+                <h3>🇺🇸 Dallas</h3>
+
+                <p>AT&T Stadium</p>
+
+            </div>
+
+        </div>
+
+        <!-- FILADÉLFIA -->
+
+        <div class="card-estadio">
+
+            <img src="imagens/filadelfia.png.png" alt="Filadélfia">
+
+            <div class="info-estadio">
+
+                <h3>🇺🇸 Filadélfia</h3>
+
+                <p>Lincoln Financial Field</p>
+
+            </div>
+
+        </div>
+
+        <!-- HOUSTON -->
+
+        <div class="card-estadio">
+
+            <img src="imagens/houston.png.png" alt="Houston">
+
+            <div class="info-estadio">
+
+                <h3>🇺🇸 Houston</h3>
+
+                <p>NRG Stadium</p>
+
+            </div>
+
+        </div>
+
+        <!-- KANSAS CITY -->
+
+        <div class="card-estadio">
+
+            <img src="imagens/kansas.png.png" alt="Kansas City">
+
+            <div class="info-estadio">
+
+                <h3>🇺🇸 Kansas City</h3>
+
+                <p>Arrowhead Stadium</p>
+
+            </div>
+
+        </div>
+
+        <!-- LOS ANGELES -->
+
+        <div class="card-estadio">
+
+            <img src="imagens/losangeles.png.png" alt="Los Angeles">
+
+            <div class="info-estadio">
+
+                <h3>🇺🇸 Los Angeles</h3>
+
+                <p>SoFi Stadium</p>
+
+            </div>
+
+        </div>
+
+        <!-- MIAMI -->
+
+        <div class="card-estadio">
+
+            <img src="imagens/miami.png.png" alt="Miami">
+
+            <div class="info-estadio">
+
+                <h3>🇺🇸 Miami</h3>
+
+                <p>Hard Rock Stadium</p>
+
+            </div>
+
+        </div>
+
+        <!-- NEW YORK -->
+
+        <div class="card-estadio">
+
+            <img src="imagens/newyork.png.png" alt="Nova York">
+
+            <div class="info-estadio">
+
+                <h3>🇺🇸 Nova York / Nova Jersey</h3>
+
+                <p>MetLife Stadium</p>
+
+            </div>
+
+        </div>
+
+        <!-- SÃO FRANCISCO -->
+
+        <div class="card-estadio">
+
+            <img src="imagens/sanfrancisco.png.png" alt="São Francisco">
+
+            <div class="info-estadio">
+
+                <h3>🇺🇸 São Francisco</h3>
+
+                <p>Levi's Stadium</p>
+
+            </div>
+
+        </div>
+
+        <!-- SEATTLE -->
+
+        <div class="card-estadio">
+
+            <img src="imagens/seatle.png.png" alt="Seattle">
+
+            <div class="info-estadio">
+
+                <h3>🇺🇸 Seattle</h3>
+
+                <p>Lumen Field</p>
+
+            </div>
+
+        </div>
+
+        <!-- MÉXICO -->
+
+        <div class="card-estadio">
+
+            <img src="imagens/azteca.png.png" alt="Cidade do México">
+
+            <div class="info-estadio">
+
+                <h3>🇲🇽 Cidade do México</h3>
+
+                <p>Estadio Azteca</p>
+
+            </div>
+
+        </div>
+
+        <!-- GUADALAJARA -->
+
+        <div class="card-estadio">
+
+            <img src="imagens/guadalajara.png.png" alt="Guadalajara">
+
+            <div class="info-estadio">
+
+                <h3>🇲🇽 Guadalajara</h3>
+
+                <p>Estadio Akron</p>
+
+            </div>
+
+        </div>
+
+        <!-- MONTERREY -->
+
+        <div class="card-estadio">
+
+            <img src="imagens/monterrey.png.png" alt="Monterrey">
+
+            <div class="info-estadio">
+
+                <h3>🇲🇽 Monterrey</h3>
+
+                <p>Estadio BBVA</p>
+
+            </div>
+
+        </div>
+
+        <!-- TORONTO -->
+
+        <div class="card-estadio">
+
+            <img src="imagens/toronto.png" alt="Toronto">
+
+            <div class="info-estadio">
+
+                <h3>🇨🇦 Toronto</h3>
+
+                <p>BMO Field</p>
+
+            </div>
+
+        </div>
+
+        <!-- VANCOUVER -->
+
+        <div class="card-estadio">
+
+            <img src="imagens/vancouver.png.png" alt="Vancouver">
+
+            <div class="info-estadio">
+
+                <h3>🇨🇦 Vancouver</h3>
+
+                <p>BC Place</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="selecoes" class="secao-selecoes">
+
+    <div class="topo-selecoes">
+        <h2 class="titulo-secao">
+            Seleções da Copa do Mundo 2026
+        </h2>
+
+        <p class="subtitulo-selecoes">
+            As principais seleções do futebol mundial
+        </p>
+    </div>
+
+    <div class="container-selecoes">
+
+        <div class="card-selecao brasil">
+            <div class="bandeira">🇧🇷</div>
+            <h3>Brasil</h3>
+        </div>
+
+        <div class="card-selecao argentina">
+            <div class="bandeira">🇦🇷</div>
+            <h3>Argentina</h3>
+        </div>
+
+        <div class="card-selecao franca">
+            <div class="bandeira">🇫🇷</div>
+            <h3>França</h3>
+        </div>
+
+        <div class="card-selecao alemanha">
+            <div class="bandeira">🇩🇪</div>
+            <h3>Alemanha</h3>
+        </div>
+
+        <div class="card-selecao espanha">
+            <div class="bandeira">🇪🇸</div>
+            <h3>Espanha</h3>
+        </div>
+
+        <div class="card-selecao portugal">
+            <div class="bandeira">🇵🇹</div>
+            <h3>Portugal</h3>
+        </div>
+
+        <div class="card-selecao inglaterra">
+            <div class="bandeira">🇬🇧</div>
+            <h3>Inglaterra</h3>
+        </div>
+
+        <div class="card-selecao italia">
+            <div class="bandeira">🇮🇹</div>
+            <h3>Itália</h3>
+        </div>
+
+        <div class="card-selecao holanda">
+            <div class="bandeira">🇳🇱</div>
+            <h3>Holanda</h3>
+        </div>
+
+        <div class="card-selecao belgica">
+            <div class="bandeira">🇧🇪</div>
+            <h3>Bélgica</h3>
+        </div>
+
+        <div class="card-selecao croacia">
+            <div class="bandeira">🇭🇷</div>
+            <h3>Croácia</h3>
+        </div>
+
+        <div class="card-selecao uruguai">
+            <div class="bandeira">🇺🇾</div>
+            <h3>Uruguai</h3>
+        </div>
+
+        <div class="card-selecao japao">
+            <div class="bandeira">🇯🇵</div>
+            <h3>Japão</h3>
+        </div>
+
+        <div class="card-selecao coreia">
+            <div class="bandeira">🇰🇷</div>
+            <h3>Coreia do Sul</h3>
+        </div>
+
+        <div class="card-selecao marrocos">
+            <div class="bandeira">🇲🇦</div>
+            <h3>Marrocos</h3>
+        </div>
+
+        <div class="card-selecao eua">
+            <div class="bandeira">🇺🇸</div>
+            <h3>Estados Unidos</h3>
+        </div>
+
+        <div class="card-selecao mexico">
+            <div class="bandeira">🇲🇽</div>
+            <h3>México</h3>
+        </div>
+
+        <div class="card-selecao canada">
+            <div class="bandeira">🇨🇦</div>
+            <h3>Canadá</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+<!-- JOGOS AO VIVO --> 
+<section id="jogos" class="secao-jogos">
+
+    <h2 class="titulo-secao">
+        Jogos Ao Vivo
+    </h2>
+
+    <div class="container-jogos" id="containerJogos">
+
+    </div>
+
+</section>
+
+
+
+
+
+
+<section id="pontuacao" class="secao-pontuacao">
+
+    <h2 class="titulo-secao">Pontuação em Tempo Real</h2>
+
+   <div id="rankingContainer"></div>
+
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--JAVASCRIPT DE APIS E DO BOTSTRAP EU COLOQUEI AQUI-->
+
+
+    <footer>
+
+
+
+
+
+    </footer>
+
+     
+
+
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+
+    
+
+
+
+
+
+   <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+const apiKey = "f3922b2f630648a1885058724d840c98";
+
+const urlNoticias =
+`https://newsapi.org/v2/everything?q=FIFA%20World%20Cup&language=pt&sortBy=publishedAt&pageSize=20&apiKey=${apiKey}`;
+
+/* =========================================
+   NOTÍCIAS
+========================================= */
+
+async function carregarNoticias() {
+
+    const featuredContainer = document.getElementById("featuredNews");
+    const container = document.getElementById("containerNoticias");
+
+    try {
+
+        const resposta = await fetch(urlNoticias);
+        const dados = await resposta.json();
+
+        const noticias = dados.articles;
+
+        if (!noticias || noticias.length === 0) throw new Error("Sem notícias");
+
+        let i = 0;
+
+        function atualizar() {
+
+            const n = noticias[i];
+
+            featuredContainer.innerHTML = `
+                <img src="${n.urlToImage || 'imagens/fallback.jpg'}">
+                <div class="featured-overlay">
+                    <h2>${n.title || ""}</h2>
+                    <p>${n.description || "Sem descrição"}</p>
+                    <a href="${n.url}" target="_blank" class="featured-btn">
+                        Ler notícia
+                    </a>
+                </div>
+            `;
+
+            i = (i + 1) % noticias.length;
+        }
+
+        atualizar();
+        setInterval(atualizar, 5000);
+
+        container.innerHTML = "";
+
+        noticias.forEach(n => {
+            container.innerHTML += `
+                <div class="card-noticia">
+                    <img src="${n.urlToImage || 'imagens/fallback.jpg'}">
+                    <div class="conteudo-noticia">
+                        <h3>${n.title || ""}</h3>
+                        <p>${n.description || "Sem descrição"}</p>
+                        <a href="${n.url}" target="_blank" class="btn-noticia">
+                            Ver mais
+                        </a>
+                    </div>
+                </div>
+            `;
+        });
+
+    } catch (err) {
+        featuredContainer.innerHTML = `
+            <div style="color:white;text-align:center;padding:20px;">
+                ❌ Não foi possível carregar as notícias
+            </div>
+        `;
+    }
+}
+
+/* =========================================
+   SLIDER
+========================================= */
+
+function iniciarSlider() {
+    const slider = document.querySelector(".news-slider");
+    if (!slider) return;
+
+    slider.addEventListener("wheel", (event) => {
+        event.preventDefault();
+        slider.scrollLeft += event.deltaY;
+    });
+}
+
+/* =========================================
+   JOGOS AO VIVO (ESPN MULTI-LIGAS REAL)
+========================================= */
+
+async function carregarJogos() {
+
+    const container = document.getElementById("containerJogos");
+
+    if (!container) return;
+
+    container.innerHTML = `
+        <div class="loading-jogos">
+            🔄 Buscando jogos ao vivo...
+        </div>
+    `;
+
+    try {
+
+        const ligas = [
+            "https://site.api.espn.com/apis/v2/sports/soccer/fifa.fifa",
+            "https://site.api.espn.com/apis/v2/sports/soccer/fifa.world",
+            "https://site.api.espn.com/apis/v2/sports/soccer/uefa.champions",
+            "https://site.api.espn.com/apis/v2/sports/soccer/conmebol.copa",
+            "https://site.api.espn.com/apis/v2/sports/soccer/eng.1"
+        ];
+
+        const respostas = await Promise.allSettled(
+            ligas.map(url => fetch(url).then(r => r.json()))
+        );
+
+        let jogos = [];
+
+        respostas.forEach(r => {
+            if (r.status === "fulfilled" && r.value?.events) {
+                jogos = jogos.concat(r.value.events);
+            }
+        });
+
+        if (jogos.length === 0) {
+            renderFallbackJogos(container);
+            return;
+        }
+
+        renderJogos(container, jogos);
+
+    } catch (err) {
+        renderFallbackJogos(container);
+    }
+}
+
+/* =========================================
+   RENDER JOGOS
+========================================= */
+
+function renderJogos(container, jogos) {
+
+    container.innerHTML = "";
+
+    jogos.slice(0, 20).forEach(jogo => {
+
+        const c = jogo.competitions?.[0];
+        if (!c) return;
+
+        const status = c.status?.type?.description || "Desconhecido";
+        const detalhe = c.status?.type?.shortDetail || "";
+
+        const casa = c.competitors?.find(t => t.homeAway === "home");
+        const fora = c.competitors?.find(t => t.homeAway === "away");
+
+        const golsCasa = casa?.score ?? 0;
+        const golsFora = fora?.score ?? 0;
+
+        container.innerHTML += `
+            <div class="card-jogo">
+
+                <div class="jogo-topo">
+                    <span class="status">${status}</span>
+                    <span class="tempo">${detalhe}</span>
+                </div>
+
+                <div class="times">
+
+                    <div class="time">
+                        <h3>${casa?.team?.displayName || "Casa"}</h3>
+                        <span class="placar-time">${golsCasa}</span>
+                    </div>
+
+                    <div class="vs">VS</div>
+
+                    <div class="time">
+                        <h3>${fora?.team?.displayName || "Fora"}</h3>
+                        <span class="placar-time">${golsFora}</span>
+                    </div>
+
+                </div>
+
+                <div class="jogo-info">
+                    📊 ${golsCasa} x ${golsFora}
+                </div>
+
+            </div>
+        `;
+    });
+}
+
+/* =========================================
+   FALLBACK
+========================================= */
+
+function renderFallbackJogos(container) {
+
+    const jogosFake = [
+        { casa: "Brasil", fora: "Argentina", placar: "2 x 1", status: "Ao vivo", tempo: "78'" },
+        { casa: "França", fora: "Alemanha", placar: "1 x 1", status: "Intervalo", tempo: "45'" },
+        { casa: "Portugal", fora: "Espanha", placar: "0 x 0", status: "Pré-jogo", tempo: "--" }
+    ];
+
+    container.innerHTML = "";
+
+    jogosFake.forEach(j => {
+
+        container.innerHTML += `
+            <div class="card-jogo fallback">
+
+                <div class="jogo-topo">
+                    <span class="status">${j.status}</span>
+                    <span class="tempo">${j.tempo}</span>
+                </div>
+
+                <div class="times">
+
+                    <div class="time">
+                        <h3>${j.casa}</h3>
+                        <span class="placar-time">${j.placar.split(" x ")[0]}</span>
+                    </div>
+
+                    <div class="vs">VS</div>
+
+                    <div class="time">
+                        <h3>${j.fora}</h3>
+                        <span class="placar-time">${j.placar.split(" x ")[1]}</span>
+                    </div>
+
+                </div>
+
+                <div class="jogo-info">
+                    ⚽ ${j.status}
+                </div>
+
+            </div>
+        `;
+    });
+}
+
+/* =========================================
+   RANKING (REALISTA / SIMULADO)
+========================================= */
+
+function carregarRanking() {
+
+    const container = document.getElementById("rankingContainer");
+
+    const times = [
+        { nome: "Brasil", pontos: 18 },
+        { nome: "Argentina", pontos: 16 },
+        { nome: "França", pontos: 15 },
+        { nome: "Portugal", pontos: 14 },
+        { nome: "Inglaterra", pontos: 12 },
+        { nome: "Espanha", pontos: 10 }
+    ];
+
+    times.sort((a, b) => b.pontos - a.pontos);
+
+    container.innerHTML = `
+        <div class="tabela-header">
+            <div>Posição</div>
+            <div>Seleção</div>
+            <div>Pontos</div>
+        </div>
+    `;
+
+    times.forEach((t, index) => {
+
+        container.innerHTML += `
+            <div class="rank-card">
+                <div class="rank-pos">${index + 1}</div>
+
+                <div class="rank-team">
+                    ${t.nome}
+                    <div class="rank-info">Seleção nacional</div>
+                </div>
+
+                <div class="rank-points">${t.pontos}</div>
+            </div>
+        `;
+    });
+}
+
+/* =========================================
+   START
+========================================= */
+
+carregarNoticias();
+carregarJogos();
+iniciarSlider();
+carregarRanking();
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+    </body>
+
+
+</html>
+
