@@ -1,0 +1,1390 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body{
+
+    padding-top: 100px;
+
+    font-family:'Inter', sans-serif;
+
+    background: #ececec;
+}
+
+
+
+.menu-noticias{
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 50px;
+
+    z-index: 1000;
+
+    background-image: url("imagens/bg-nav.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+
+
+.menu-noticias::before{
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    z-index: 1;
+}
+
+
+
+.menu-noticias *{
+    position: relative;
+    z-index: 2;
+}
+
+
+
+.logo{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+
+.logo img{
+
+    width: 70px;
+
+    height: 70px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+}
+
+
+
+.logo h1{
+
+    color: white;
+
+    font-size: 32px;
+
+    margin: 0;
+
+    text-shadow:
+        2px 2px 10px rgba(0,0,0,0.8);
+}
+
+
+
+.nav-links{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+
+
+.nav-links a{
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+    text-shadow:
+        2px 2px 8px rgba(0,0,0,0.8);
+
+
+}
+
+/* HOVER */
+
+.nav-links a:hover{
+
+    cursor:pointer;
+    color: #ffdf00;
+
+    text-shadow:
+        0 0 10px #fff,
+        0 0 20px #ffdf00;
+}
+
+
+
+
+/* HERO CAROSEL */
+
+
+#linkAncoraFoto:hover {
+cursor: pointer;  
+
+}
+
+
+
+.hero-carousel{
+
+    width: 100%;
+
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+/* CARROSEL */
+
+#carouselCopa{
+
+    height: 100vh;
+}
+
+.carousel-inner{
+
+    height: 100vh;
+}
+
+.carousel-item{
+
+    height: 100vh;
+
+    position: relative;
+}
+
+/* IMAGENS */
+
+.carousel-item img{
+
+    width: 100%;
+
+    height: 100vh;
+
+    object-fit: cover;
+}
+
+
+
+.overlay{
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.45);
+}
+
+/* TEXTO */
+
+.carousel-caption{
+
+    bottom: 35%;
+
+    z-index: 10;
+}
+
+.carousel-caption h1{
+
+    font-size: 80px;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 0 20px rgba(0,0,0,0.8);
+
+    margin-bottom: 20px;
+}
+
+.carousel-caption p{
+
+    font-size: 28px;
+
+    text-shadow:
+        0 0 15px rgba(0,0,0,0.8);
+}
+
+
+
+
+
+
+
+.ultimas-noticias{
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    background: #0f172a;
+
+    padding: 120px 50px;
+
+    color: white;
+}
+
+/* TITULO */
+
+.titulo-secao{
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 40px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #e2e8f0;
+}
+
+/* WRAPPER */
+
+.news-wrapper{
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 50px;
+}
+
+/* NOTÍCIA PRINCIPAL */
+
+.featured-news{
+
+    width: 100%;
+
+    height: 600px;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.6);
+}
+
+/* IMAGEM PRINCIPAL */
+
+.featured-news img{
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+/* OVERLAY */
+
+.featured-overlay{
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+    linear-gradient(
+        to top,
+        rgba(0,0,0,0.95),
+        rgba(0,0,0,0.2)
+    );
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: end;
+
+    padding: 50px;
+}
+
+/* TEXTO PRINCIPAL */
+
+.featured-overlay h2{
+
+    color: white;
+
+    font-size: 60px;
+
+    margin-bottom: 20px;
+
+    max-width: 900px;
+}
+
+.featured-overlay p{
+
+    color: #d1d5db;
+
+    font-size: 22px;
+
+    max-width: 900px;
+
+    margin-bottom: 30px;
+}
+
+/* BOTÃO PRINCIPAL */
+
+.featured-btn{
+
+    width: fit-content;
+
+    padding: 15px 35px;
+
+    background: #22c55e;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 12px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.featured-btn:hover{
+
+    transform: scale(1.05);
+
+    background: #16a34a;
+}
+
+/* SLIDER */
+
+.news-slider{
+
+    display: flex;
+
+    gap: 20px;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+
+    padding: 20px 10px;
+
+    scrollbar-width: thin;
+}
+
+/* SCROLL */
+
+.news-slider::-webkit-scrollbar{
+
+    height: 10px;
+}
+
+.news-slider::-webkit-scrollbar-thumb{
+
+    background: #22c55e;
+
+    border-radius: 10px;
+}
+
+/* CARD */
+
+.card-noticia{
+
+     min-width: 220px;
+
+    max-width: 220px;
+
+    min-height: 380px;
+
+    background: #111827;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+
+    transition: 0.35s;
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.4);
+}
+
+/* EFEITO */
+
+.card-noticia:hover{
+
+    transform:
+        scale(1.08)
+        translateY(-15px);
+
+    z-index: 100;
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,0.8);
+}
+
+/* IMAGEM */
+
+.card-noticia img{
+
+    width: 100%;
+
+    height: 120px;
+
+    object-fit: cover;
+}
+
+/* CONTEÚDO */
+
+.conteudo-noticia{
+
+    padding: 15px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    justify-content: space-between;
+}
+
+.conteudo-noticia h3{
+
+    color: white;
+
+    font-size: 16px;
+
+    line-height: 1.4;
+
+    margin-bottom: 12px;
+}
+
+.conteudo-noticia p{
+    color: #cbd5e1;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+
+    line-clamp: 4; /* ✔️ padrão (compatibilidade futura) */
+
+    overflow: hidden;
+}
+
+/* BOTÃO */
+
+.btn-noticia{
+
+    display: inline-block;
+
+    width: 100%;
+
+    text-align: center;
+
+    padding: 12px;
+
+    background: #22c55e;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+    margin-top: 15px;
+}
+
+.btn-noticia:hover{
+
+    background: #16a34a;
+
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   RESPONSIVIDADE CELULAR
+========================================= */
+
+@media (max-width: 768px){
+
+    /* NAVBAR */
+
+    .menu-noticias{
+
+        height: auto;
+
+        padding: 15px 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    /* LOGO */
+
+    .logo{
+
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .logo img{
+
+        width: 55px;
+
+        height: 55px;
+    }
+
+    .logo h1{
+
+        font-size: 28px;
+
+        text-align: center;
+    }
+
+    /* LINKS */
+
+    .nav-links{
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+    .nav-links a{
+
+        font-size: 16px;
+    }
+
+    /* BODY */
+
+    body{
+
+        padding-top: 170px;
+    }
+
+    /* HERO */
+
+    .carousel-caption{
+
+        bottom: 25%;
+    }
+
+    .carousel-caption h1{
+
+        font-size: 38px;
+    }
+
+    .carousel-caption p{
+
+        font-size: 18px;
+    }
+
+    /* SEÇÃO */
+
+    .ultimas-noticias{
+
+        padding: 80px 20px;
+    }
+
+    .titulo-secao{
+
+        font-size: 36px;
+    }
+
+    /* DESTAQUE */
+
+    .featured-news{
+
+        height: 450px;
+    }
+
+    .featured-overlay{
+
+        padding: 25px;
+    }
+
+    .featured-overlay h2{
+
+        font-size: 30px;
+
+        line-height: 1.2;
+    }
+
+    .featured-overlay p{
+
+        font-size: 16px;
+    }
+
+    /* SLIDER */
+
+    .news-slider{
+
+        gap: 20px;
+
+        padding-bottom: 15px;
+    }
+
+    /* CARDS */
+
+    .card-noticia{
+
+        min-width: 280px;
+
+        height: auto;
+    }
+
+    .card-noticia img{
+
+        height: 180px;
+    }
+
+    .conteudo-noticia{
+
+        padding: 20px;
+    }
+
+    .conteudo-noticia h3{
+
+        font-size: 20px;
+    }
+
+    .conteudo-noticia p{
+
+        font-size: 15px;
+    }
+
+    /* BOTÕES */
+
+    .btn-noticia,
+    .featured-btn{
+
+        width: 100%;
+
+        text-align: center;
+
+        padding: 14px;
+    }
+
+    /* REMOVE ZOOM EXAGERADO */
+
+    .card-noticia:hover{
+
+        transform: translateY(-8px);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   ESTÁDIOS
+========================================= */
+
+.secao-estadios{
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 120px 50px;
+
+    background:
+        linear-gradient(to bottom, #020617, #0f172a);
+
+    color: white;
+}
+
+/* GRID */
+
+.grid-estadios{
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 35px;
+}
+
+/* CARD */
+
+.card-estadio{
+
+    background: #111827;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    transition: 0.4s;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.4);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+}
+
+/* HOVER */
+
+.card-estadio:hover{
+
+    transform:
+        translateY(-10px)
+        scale(1.02);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.7);
+
+    border-color:
+        rgba(34,197,94,0.6);
+}
+
+/* IMAGEM */
+
+.card-estadio img{
+
+    width: 100%;
+
+    height: 240px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+/* INFO */
+
+.info-estadio{
+
+    padding: 25px;
+}
+
+.info-estadio h3{
+
+    font-size: 28px;
+
+    margin-bottom: 12px;
+
+    color: white;
+}
+
+.info-estadio p{
+
+    color: #cbd5e1;
+
+    font-size: 18px;
+
+    margin: 0;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+    .secao-estadios{
+
+        padding: 80px 20px;
+    }
+
+    .grid-estadios{
+
+        grid-template-columns: 1fr;
+    }
+
+    .info-estadio h3{
+
+        font-size: 24px;
+    }
+
+}
+
+
+
+/* =========================================
+   SELEÇÕES
+========================================= */
+
+.secao-selecoes{
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 120px 40px;
+
+    background:
+    radial-gradient(circle at top,
+    #1e293b,
+    #020617);
+
+    overflow: hidden;
+
+    position: relative;
+
+    color: white;
+}
+
+/* TOPO */
+
+.topo-selecoes{
+
+    text-align: center;
+
+    margin-bottom: 80px;
+}
+
+/* TÍTULO */
+
+.secao-selecoes .titulo-secao{
+
+    color: white;
+
+    font-size: 55px;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 0 15px rgba(0,0,0,0.7);
+}
+
+.subtitulo-selecoes{
+
+    color: #e2e8f0;
+
+    font-size: 24px;
+
+    margin-top: 15px;
+}
+
+/* GRID */
+
+.container-selecoes{
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 40px;
+}
+
+/* CARD */
+
+.card-selecao{
+
+    height: 300px;
+
+    border-radius: 30px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,0.08),
+        rgba(255,255,255,0.02)
+    );
+
+    backdrop-filter: blur(20px);
+
+    border:
+    1px solid rgba(255,255,255,0.1);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: 0.4s;
+
+    cursor: pointer;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.4);
+}
+
+/* HOVER */
+
+.card-selecao:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.03);
+
+    box-shadow:
+    0 25px 50px rgba(0,0,0,0.6);
+}
+
+/* BANDEIRAS */
+
+.bandeira{
+
+    font-size: 85px;
+
+    margin-bottom: 25px;
+
+    line-height: 1;
+}
+
+/* NOMES */
+
+.card-selecao h3{
+
+    color: white;
+
+    font-size: 32px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    margin: 0;
+}
+
+/* CORES */
+
+.brasil{
+    border-bottom: 5px solid #22c55e;
+}
+
+.argentina{
+    border-bottom: 5px solid #38bdf8;
+}
+
+.franca{
+    border-bottom: 5px solid #2563eb;
+}
+
+.alemanha{
+    border-bottom: 5px solid #facc15;
+}
+
+.espanha{
+    border-bottom: 5px solid #ef4444;
+}
+
+.portugal{
+    border-bottom: 5px solid #16a34a;
+}
+
+.inglaterra{
+    border-bottom: 5px solid #f8fafc;
+}
+
+.italia{
+    border-bottom: 5px solid #3b82f6;
+}
+
+.holanda{
+    border-bottom: 5px solid #f97316;
+}
+
+.belgica{
+    border-bottom: 5px solid #eab308;
+}
+
+.croacia{
+    border-bottom: 5px solid #ef4444;
+}
+
+.uruguai{
+    border-bottom: 5px solid #38bdf8;
+}
+
+.japao{
+    border-bottom: 5px solid #dc2626;
+}
+
+.coreia{
+    border-bottom: 5px solid #f43f5e;
+}
+
+.marrocos{
+    border-bottom: 5px solid #16a34a;
+}
+
+.eua{
+    border-bottom: 5px solid #2563eb;
+}
+
+.mexico{
+    border-bottom: 5px solid #22c55e;
+}
+
+.canada{
+    border-bottom: 5px solid #dc2626;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+    .secao-selecoes{
+
+        padding: 80px 20px;
+    }
+
+    .card-selecao{
+
+        height: 240px;
+    }
+
+    .bandeira{
+
+        font-size: 65px;
+    }
+
+    .card-selecao h3{
+
+        font-size: 24px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   JOGOS AO VIVO (UPGRADE)
+========================= */
+
+.secao-jogos{
+    padding: 120px 40px;
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    color: white;
+}
+
+.container-jogos{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* CARD */
+.card-jogo{
+    background: linear-gradient(145deg, rgb(255, 85, 0), #060a12);
+    border-radius: 18px;
+    padding: 20px;
+    transition: 0.25s ease;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-jogo::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #eeff00, transparent);
+    animation: linhaAnimada 3s linear infinite;
+}
+
+@keyframes linhaAnimada{
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(50%); }
+}
+
+.card-jogo:hover{
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(34,197,94,0.4);
+}
+
+/* TOPO */
+.jogo-topo{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 12px;
+    color:#94a3b8;
+}
+
+.status{
+    color:#f6ff00;
+    font-weight:bold;
+}
+
+.tempo{
+    color:#ffffff;
+}
+
+/* TIMES */
+.times{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    text-align:center;
+    margin: 15px 0;
+}
+
+.time h3{
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.placar-time{
+    font-size: 28px;
+    font-weight: bold;
+    color:#22c55e;
+}
+
+.vs{
+    font-weight:bold;
+    opacity:0.6;
+}
+
+/* INFO */
+.jogo-info{
+    text-align:center;
+    margin-top:10px;
+    color:#cbd5e1;
+    font-size: 18px;
+}
+
+/* LOADING */
+.loading-jogos{
+    text-align:center;
+    color:#d8d8d8;
+    padding:20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   TABELA FIFA STYLE
+========================= */
+
+
+
+
+/* LINHA (HEADER) */
+.tabela-header{
+    display: grid;
+    grid-template-columns: 80px 1fr 120px;
+    padding: 15px 20px;
+    background: rgb(73, 36, 0);
+    font-weight: bold;
+    font-size: 14px;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+
+/* =========================
+   TABELA FIFA STYLE
+========================= */
+
+.secao-pontuacao{
+    padding: 120px 40px;
+    background: linear-gradient(180deg, #020617, #0f172a);
+    color: white;
+}
+
+/* CONTAINER */
+.tabela-fifa{
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+/* HEADER DA TABELA */
+.tabela-header{
+    display: grid;
+    grid-template-columns: 80px 1fr 120px;
+    padding: 15px 20px;
+    background: rgb(36, 115, 40);
+    font-weight: bold;
+    font-size: 13px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* LINHAS */
+.rank-card{
+    display: grid;
+    grid-template-columns: 80px 1fr 120px;
+    align-items: center;
+
+    padding: 18px 20px;
+
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+
+    transition: 0.25s ease;
+}
+
+/* HOVER */
+.rank-card:hover{
+    background: rgba(3, 172, 65, 0.08);
+    transform: scale(1.03);
+}
+
+/* POSIÇÃO */
+.rank-pos{
+    font-size: 18px;
+    font-weight: bold;
+    color: #22c55e;
+}
+
+/* TIME */
+.rank-team{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* SUBINFO */
+.rank-info{
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 3px;
+}
+
+/* PONTOS */
+.rank-points{
+    text-align: right;
+    font-size: 16px;
+    font-weight: bold;
+    color: #facc15;
+}
+
+/* TOP 1 DESTACADO */
+.rank-card:first-child{
+    background: rgba(34,197,94,0.12);
+}
+
+
+
+.select_menu {
+    text-decoration: none;
+    background-color: #060a12;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 0 25px 0 25px;
+}
