@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: green;
+    color: yellow;
+}
+
+.links {
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    background-color: rgb(1, 108, 1);
+    align-items: center;
+}
+
+.links a {
+    text-decoration: none;
+    color: yellow;
+}
+
+.links a:hover {
+    color: blue;
+}
